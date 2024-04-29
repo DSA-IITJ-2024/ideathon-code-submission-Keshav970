@@ -33,18 +33,29 @@ To use these algorithms in your project:
 ## Examples
 
 ### Example Usage of fSAIS and BWT
+```cpp
+#include <iostream>
+#include "fsais.h"
 
-```python
-from fsais import fsais
+int main() {
+    std::string text = "banana";
+    auto suffix_array = fsais(text);
+    for (auto idx : suffix_array) {
+        std::cout << idx << " ";
+    }
+    std::cout << std::endl;
+    return 0;
+}
 
-text = "banana"
-suffix_array = fsais(text)
-print(suffix_array)
-'''
-from bwt import bwt
+#include <iostream>
+#include "bwt.h"
 
-text = "banana"
-transformed_string, index = bwt(text)
-print(transformed_string)
-print(index)
+int main() {
+    std::string text = "banana";
+    auto result = bwt(text);
+    std::cout << "Transformed String: " << result.first << std::endl;
+    std::cout << "Index: " << result.second << std::endl;
+    return 0;
+}
+
 
